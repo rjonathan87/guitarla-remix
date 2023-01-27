@@ -1,5 +1,4 @@
 import { Link, useLoaderData } from "@remix-run/react"
-import styles from "~/styles/blog.css";
 import { getPost } from "~/models/posts.server"
 import { formatearFecha } from "~/utils/helpers"
 
@@ -16,13 +15,6 @@ export const loader = async({request, params}) => {
   
   return post.data[0]
 }
-
-export const links  = () => [
-  {
-    rel: 'stylesheet',
-    href: styles
-  }
-]
 
 export const meta =({data}) => {
   if(!data){
