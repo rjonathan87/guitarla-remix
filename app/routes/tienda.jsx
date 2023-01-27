@@ -1,15 +1,36 @@
+import { useLoaderData } from "@remix-run/react";
+import Guitarra from "~/components/guitarra";
+import ListadoGuitarras from "~/components/listado-guitarras";
+import { getGuitarras } from "~/models/guitarras.server";
+import styles from '~/styles/guitarras.css';
+
+export function meta() {
+  return {
+    title: 'GuitarLA - Tienda de Guitarras',
+    description: 'GuitarLA - Nuestra colección de guitarras'
+  }
+}
 
 export async function loader(){
-  const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`)
-  const resultado = await respuesta.json()
+  return await getGuitarras()
+}
 
-  console.log(resultado)
-  return {}
+export function links(){
+  return [
+    {
+      rel: 'stylesheet',
+      href: styles
+    }
+  ]
 }
 
 const Tienda = () => {
+  const guitarras = useLoaderData();
+  
   return (
-    <div>Tienda</div>
+    <main className="contenedor">
+      <ListadoGuitarras guitarras={guitarras.data} />
+    </main>
   )
 }
 
