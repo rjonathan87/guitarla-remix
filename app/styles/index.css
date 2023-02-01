@@ -152,3 +152,6 @@ main {
 .enlace:hover{
   background-color: var(--primary);
 }
+.curso .text{
+  color: var(--white);
+}

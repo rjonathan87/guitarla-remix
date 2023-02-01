@@ -11,7 +11,6 @@ import ListadoPosts from "~/components/listado-posts"
 import { getCurso } from "~/models/curso.server"
 import Curso from "~/components/curso"
 
-export const meta = () => {}
 export const links = () => {
   return [
     {
