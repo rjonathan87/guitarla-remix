@@ -76,7 +76,9 @@ export default function App(){
     setCarrito(carritoActualizado)
   }
   const eliminarGuitarra = id => {
-    setCarrito(carrito.filter( guitarraState => guitarraState.id !== id))
+    if(confirm('Está seguro de  eliminar?')){
+      setCarrito(carrito.filter( guitarraState => guitarraState.id !== id))
+    }
   }
   return (
     <Document>
