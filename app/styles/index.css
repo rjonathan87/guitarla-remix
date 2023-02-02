@@ -35,9 +35,8 @@ main {
   margin: 5rem 0;
 }
 
-/*** Header ***/
 .header {
-  background-image: linear-gradient(to right, rgb(0 0 0 / .8), rgb(0 0 0 / .7)), url(/img/header.jpg);
+  background-image: linear-gradient(to right, rgb(0 0 0 / .8), rgb(0 0 0 / .7)), url("/img/header.jpg");
   padding: 6rem 0;
   background-size: cover;
   background-position: center center;
@@ -46,9 +45,9 @@ main {
   width: 25rem;
 }
 .barra {
- display: flex;
- flex-direction: column;
- align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 @media (min-width: 768px) {
   .barra {
@@ -123,12 +122,12 @@ main {
   text-align: center;
 }
 .error, 
-.error-enlace{
+.error-enlace {
   font-size: 2.4rem;
   text-align: center;
   margin-top: 5rem;
 }
-.error-enlace{
+.error-enlace {
   display: block;
   color: var(--primary);
   text-decoration: none;

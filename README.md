@@ -51,3 +51,6 @@ rm -rf app
 # copy your app over
 cp -R ../my-old-remix-app/app app
 ```
+
+### install remix-utils
+npm i remix-utils
