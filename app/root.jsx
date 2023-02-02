@@ -10,7 +10,7 @@ import {
 import styles from '~/styles/index.css'
 import Header from '~/components/header'
 import Footer from './components/footer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function meta(){
   return (
@@ -49,7 +49,14 @@ export function links(){
 }
 
 export default function App(){
-  const [carrito, setCarrito] = useState([])
+  const carritoLS = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('carrito')) ?? [] : null
+  const [carrito, setCarrito] = useState(carritoLS)
+
+  useEffect(() => {
+    localStorage.setItem('carrito', JSON.stringify(carrito))
+  }, [carrito])
+  
+
   const agregarCarrito = guitarra => {
     if(carrito.some(guitarraState => guitarraState.id === guitarra.id)){
       // Iterar sobre el arreglo, e identifica el elemento duplicado
@@ -103,13 +110,13 @@ function Document({children}){
       <Meta />
       <Links />
     </head>
-    <body>
-      <Header />
-      {children}
-      <Footer />
-      <Scripts />
-      <LiveReload />
-    </body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+        <Scripts />
+        <LiveReload />
+      </body>
     </html>
   )
 }
